@@ -90,7 +90,7 @@ public class Activator extends AbstractURLStreamHandlerService
         try {
             updated(null);
         } catch (AssertionError e) {
-            LOG.error("Unable to load MavenConfiguration '{}' : '{}'", e.getMessage(), e.getCause() != null ? e.getCause().getMessage() : "", e);
+            LOG.error("Unable to load MavenConfiguration '{}' ", e.getMessage() + e.getCause() != null ? e.getCause().getMessage() : "", e);
         }
         registerManagedService();
     }
@@ -270,7 +270,7 @@ public class Activator extends AbstractURLStreamHandlerService
                             try {
                                 activator.updated(dictionary);
                             } catch (AssertionError e) {
-                                LOG.error("Unable to reload MavenConfiguration '{}' : '{}'", e.getMessage(), e.getCause() != null ? e.getCause().getMessage() : "", e);
+                                LOG.error("Unable to reload MavenConfiguration '{}' ", e.getMessage() + e.getCause() != null ? e.getCause().getMessage() : "", e);
                                 throw new ConfigurationException("", "", e.getCause());
                             }
                         }
